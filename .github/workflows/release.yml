@@ -8,6 +8,7 @@ on:
       - "[0-9]+.[0-9x]+*"
     paths:
       - "immutables/_version.py"
+      - ".github/workflows/release.yml"
 
 jobs:
   validate-release-request:
@@ -65,7 +66,6 @@ jobs:
         path: dist/*.tar.*
 
   build-wheels-matrix:
-    needs: validate-release-request
     runs-on: ubuntu-latest
     outputs:
       include: ${{ steps.set-matrix.outputs.include }}
